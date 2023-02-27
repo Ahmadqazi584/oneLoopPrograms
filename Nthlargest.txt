@@ -1,0 +1,62 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class nthlargest_in_array {
+
+    public static void main(String[] args) {
+        int [] arr = {1, 10, 7, 4, 2, 3, 8, 6};
+
+        int count = 0;
+        int check = arr[0];
+        boolean checkflag = false;
+        int check2 = arr[0];
+        boolean check2flag = false;
+        int check3 = arr[0];
+        boolean check3flag = false;
+
+        Scanner input = new Scanner(System.in);
+        int nth = input.nextByte();
+
+        for (int i = 1; i < arr.length; i++) {
+            if (nth == 1) {
+                checkflag = true;
+                if (check <= arr[i]) {
+                    check = arr[i];
+                }
+            }
+            if (nth == 2) {
+                check2flag = true;
+                if (check <= arr[i]) {
+                    check = arr[i];
+                }
+                if ((check2 <= arr[i]) && (arr[i] != check)) {
+                    check2 = arr[i];
+                }
+            }
+            if (nth == 3) {
+                check3flag = true;
+                if (check <= arr[i]) {
+                    check = arr[i];
+                }
+                if ((check2 <= arr[i]) && (arr[i] != check)) {
+                    check2 = arr[i];
+                }
+                if ((check3 <= arr[i]) && (check2 != arr[i]) && (check != arr[i])) {
+                    check3 = arr[i];
+                }
+            }
+
+        }
+        if (checkflag){
+            System.out.println(check+" ");
+        }
+        if (check2flag){
+            System.out.println(check2+" ");
+        }
+        if (check3flag){
+            System.out.println(check3+" ");
+        }
+
+    }
+}
